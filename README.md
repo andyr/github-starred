@@ -17,3 +17,5 @@ language or something else (like "web" or "device drivers").
 - fetching remote content (libcurl)
 - server process that either polls for OR gets notified about changes
 - parser and writer (?)
+- topic sets by repo (python, oauth) - similar to tag clouds
+
