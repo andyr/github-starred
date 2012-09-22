@@ -6,6 +6,7 @@ Mako==0.5.0
 MarkupSafe==0.15
 PAM==0.4.2
 PIL==1.1.7
+PyGithub==1.7
 Pygments==1.4
 Twisted-Core==11.1.0
 Twisted-Names==11.1.0
