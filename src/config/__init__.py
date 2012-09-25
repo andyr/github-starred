@@ -1,4 +1,10 @@
 
+# specify dependencies
+# OS = linux (standard GAE or AWS image)
+# Python 2.7
+# Memcached, Redis, MySQL?
+# prune unnecessary dependencies specified in requirements
+
 import logging
 
 
