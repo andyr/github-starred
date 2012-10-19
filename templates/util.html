@@ -1,0 +1,19 @@
+<%!
+    from datetime import datetime
+    from decimal import Decimal
+    import web
+%>
+
+<%def name="script(name)">
+    <script src="/static/js${name}" type="text/javascript"></script>
+</%def>
+
+<%def name="env_vars()"><%
+    return web.ctx.environ
+%></%def>
+
+<%def name="docwrapper()">
+    <div id="content">
+        ${caller.body()}
+    </div>
+</%def>

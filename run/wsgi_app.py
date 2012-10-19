@@ -4,6 +4,8 @@ import os
 import sys
 import web
 
+from mako.lookup import TemplateLookup
+
 
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 src = os.path.join(project_root, 'src')
@@ -26,7 +28,7 @@ def render(template, **kwargs):
     web.header('Content-Type', web.ctx.environ.get('Content-Type') or 'text/html')
 
     template = os.path.split(template)
-    template_lookup = TemplateLookup(directories=[template_root, os.path.join(template_root, template[0])])
+    template_lookup = TemplateLookup(directories=[templates, os.path.join(templates, template[0])])
     return template_lookup.get_template(template[1]).render(**kwargs)
 
 
@@ -34,8 +36,11 @@ def render(template, **kwargs):
 class IndexController(object):
 
     def GET(self):
-        # render a template object
-        return 'hi'
+        # TODO: move controllers out of here!
+        # temporary hack
+        #import github_api
+        #data=github_api.get_starred_repos()
+        render("starred_repos.html")
 
 
 

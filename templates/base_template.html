@@ -1,0 +1,36 @@
+<%namespace name="util" file="util.html" inheritable="True" />
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>${next.title()}</title>
+        ${next.meta()}
+    </head>
+    <body>
+        <%util:docwrapper>
+            ${next.header()}
+            ${next.body()}
+            ${next.footer()}
+        </%util:docwrapper>
+        ${next.js()}
+    </body>
+</html>
+
+<%def name="title()">Github Starred Repos</%def>
+
+<%def name="meta()">
+    <meta http-equiv="Content-Type" content="text/html" />
+    <link rel="shortcut icon" href="/static/img/fav.ico" type="image/x-icon" />
+</%def>
+
+<%def name="header()">
+    <h1>${title() | trim}</h1>
+</%def>
+
+<%def name="footer()"></%def>
+
+<%def name="js()">
+    <%util:script name="kizzy.min.js" />
+    <%util:script name="backbone.min.js" />
+    <%util:script name="underscore.min.js" />
+</%def>
+
