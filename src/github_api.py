@@ -24,4 +24,4 @@ starred = Github().get_user(user).get_starred()
 } for repo in starred]
 
 
-# render content
+# render content - delegate back to controller
