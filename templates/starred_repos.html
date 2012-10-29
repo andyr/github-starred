@@ -1,4 +1,7 @@
 <%inherit file="base_template.html" />
+
+<%def name="title()">${user}</%def>
+
 <dl>
 % for repo in data:
     <dt><a href="${repo['url']}">${repo['name']}</a></dt>

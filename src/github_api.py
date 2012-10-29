@@ -9,8 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def get_starred_repos():
-    user = 'andyr'
+def get_starred_repos(user):
     starred = Github().get_user(user).get_starred()
 
     # format response

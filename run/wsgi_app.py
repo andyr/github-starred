@@ -29,10 +29,9 @@ def render(template, **kwargs):
 # == Controllers ==
 class IndexController(object):
 
-    def GET(self):
-        # TODO: move controllers out of here
-        data = github_api.get_starred_repos()
-        return render("starred_repos.html", data=data)
+    def GET(self, user):
+        data = github_api.get_starred_repos(user)
+        return render("starred_repos.html", user=user, data=data)
 
 
 # == web.py Session Pre/Post Actions ==
@@ -59,7 +58,7 @@ class WsgiApp(object):
     def app(self):
         """@see http://webpy.org/cookbook/url_handling"""
         urls = (
-            '/?', IndexController, # main page
+            '/([a-zA-Z0-9]*)/?$', IndexController
         )
 
         github_viewer = web.application(urls, globals())
