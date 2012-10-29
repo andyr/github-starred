@@ -20,5 +20,3 @@ def get_starred_repos():
         'url':repo.git_url
     } for repo in starred]
 
-
-# render content - delegate back to controller

@@ -15,7 +15,7 @@ static = os.path.join(project_root, 'static')
 
 # == Response Rendering ==
 def render(template, **kwargs):
-    """Render a template as html (or change the request header to something else)
+    """Render a template as html (or request another type of response)
     @see: http://docs.makotemplates.org/en/latest/usage.html#using-templatelookup
     @param template: C{str} path to template, relative to the template root
     """
@@ -33,8 +33,6 @@ class IndexController(object):
         # TODO: move controllers out of here
         data = github_api.get_starred_repos()
         return render("starred_repos.html", data=data)
-        #return data
-
 
 
 # == web.py Session Pre/Post Actions ==
@@ -49,18 +47,14 @@ class DBSession(object):
         return
 
 
-
-# web.py Application Init
 # @todo: run this on GAE
 # @see: http://stackoverflow.com/questions/3665292/web-py-on-google-app-engine
-
 class WsgiApp(object):
 
     def __init__(self, src):
         if not src in sys.path:
             sys.path.insert(0, src)
-        #print sys.path
-        #import github_api
+
 
     def app(self):
         """@see http://webpy.org/cookbook/url_handling"""
@@ -75,8 +69,6 @@ class WsgiApp(object):
 
 
 if __name__ == '__main__':
-    #initialize_app()
-    #app().run()
     wsgi_app = WsgiApp(src) # add src dir to path
     import github_api
     wsgi_app.app().run()
