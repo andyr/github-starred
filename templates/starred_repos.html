@@ -1,3 +1,7 @@
 <%inherit file="base_template.html" />
-
-${data}
+<dl>
+% for repo in data:
+    <dt><a href="${repo['url']}">${repo['name']}</a></dt>
+    <dd>${repo['description']}</dd>
+% endfor
+</dl>
